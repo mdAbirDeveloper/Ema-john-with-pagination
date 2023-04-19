@@ -1,6 +1,6 @@
 .header{
     height: 80px;
-    background-color: #1C2B35;
+    background-color: #4cdbb7;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -9,7 +9,7 @@
 }
 
 .header a{
-    color: #FFFFFF;
+    color: #16519e;
     text-decoration: none;
     font-size: 17px;
     margin-left: 36px;
@@ -19,5 +19,9 @@
 }
 
 .btn-logout{
-    margin-left: 10px;
+    margin-left: 15px;
+    color: white;
+    padding: 0px 3px;
+    border: 2px solid green;
+    border-radius: 5px;
 }

@@ -5,25 +5,50 @@ import logo from '../../images/Logo.svg';
 import './Header.css';
 
 const Header = () => {
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext);
+
+    const menoItem = <>
+        <Link to="/">Shop</Link>
+        <Link to="/orders">Orders</Link>
+        <Link to="/inventory">Inventory</Link>
+        <Link to="/about">About</Link>
+        {
+            user?.uid ?
+                <button className='btn-logout' onClick={logOut}>Log out</button>
+                :
+                <>
+                    <Link to="/login">Login</Link>
+                    <Link to="/signup">Sign up</Link>
+                </>
+        }
+    </>
+
     return (
         <nav className='header'>
             <img src={logo} alt="" />
             <div>
-                <Link to="/">Shop</Link>
-                <Link to="/orders">Orders</Link>
-                <Link to="/inventory">Inventory</Link>
-                <Link to="/about">About</Link>
-                {
-                    user?.uid ?
-                        <button className='btn-logout' onClick={logOut}>Log out</button>
-                        :
-                        <>
-                            <Link to="/login">Login</Link>
-                            <Link to="/signup">Sign up</Link>
-                        </>
-                }
+            <div className="navbar">
+                <div className="navbar-start">
+                    <div className="dropdown">
+                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                        </label>
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            {menoItem}
+                        </ul>
+                    </div>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
+                        {menoItem}
+                    </ul>
+                </div>
+                <div className="navbar-end">
+                </div>
             </div>
+
+            </div>
+
         </nav>
     );
 };

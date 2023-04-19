@@ -38,7 +38,9 @@
     justify-content: center;
 }
 .btn-cart .btn-text{
+    padding-top: 10px;
     margin-right: 5px;
+    height: 40px;
 }
 .btn-cart:hover{
     background-color: orange;
